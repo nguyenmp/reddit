@@ -1,7 +1,10 @@
 package com.nguyenmp.reddit.reddit.data;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import java.io.Serializable;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SubredditData implements Serializable {
     public String submit_text_html;
     public Boolean user_is_banned;
