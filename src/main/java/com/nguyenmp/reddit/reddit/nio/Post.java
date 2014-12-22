@@ -1,5 +1,7 @@
 package com.nguyenmp.reddit.reddit.nio;
 
+import com.nguyenmp.reddit.reddit.Config;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -17,6 +19,7 @@ public abstract class Post<ResultType> extends Connection<ResultType> {
         connection.setDoOutput(true);
         connection.setRequestProperty("Accept-Charset", charset);
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + charset);
+        connection.setRequestProperty("User-Agent", Config.USER_AGENT);
 
         OutputStream output = connection.getOutputStream();
         output.write(getQuery().getBytes());

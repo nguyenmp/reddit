@@ -6,11 +6,6 @@ import com.nguyenmp.reddit.reddit.nio.LoginRunnable;
 
 /** An interface to access reddit.com */
 public class Reddit {
-
-    private Reddit() {
-        // Do nothing
-    }
-
     public static LoginData login(String username, String password) throws Exception {
         LoginResult result = new LoginRunnable(username, password).call();
         if (result.json.errors.length > 0) {
