@@ -4,13 +4,9 @@ import com.nguyenmp.reddit.reddit.data.Comments;
 import com.nguyenmp.reddit.reddit.data.Link;
 import com.nguyenmp.reddit.reddit.data.Listing;
 import com.nguyenmp.reddit.reddit.data.ListingData;
-
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class CommentsTest {
 

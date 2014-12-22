@@ -3,12 +3,9 @@ package com.nguyenmp.reddit.reddit;
 import com.nguyenmp.reddit.reddit.data.ListingData;
 import com.nguyenmp.reddit.reddit.data.Subreddit;
 import com.nguyenmp.reddit.reddit.data.SubredditListing;
-
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class SubredditListingTest {
 

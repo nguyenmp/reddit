@@ -1,11 +1,9 @@
 package com.nguyenmp.reddit.reddit;
 
-import com.nguyenmp.reddit.reddit.Reddit;
 import com.nguyenmp.reddit.reddit.data.Link;
 import com.nguyenmp.reddit.reddit.data.ListingData;
 import com.nguyenmp.reddit.reddit.data.LoginData;
 import com.nguyenmp.reddit.reddit.data.SubredditLinkListing;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;

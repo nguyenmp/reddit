@@ -3,7 +3,7 @@ package com.nguyenmp.reddit.reddit.nio;
 import org.junit.Test;
 
 import static com.nguyenmp.reddit.reddit.nio.Post.NameValuePair;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class NameValuePairTest {
 
