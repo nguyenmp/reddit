@@ -1,6 +1,7 @@
 package com.nguyenmp.reddit.reddit.nio;
 
 import com.nguyenmp.reddit.reddit.Config;
+import com.nguyenmp.reddit.reddit.data.LoginData;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,6 +13,14 @@ import java.util.LinkedList;
 /** https://stackoverflow.com/questions/2793150/how-to-use-java-net-urlconnection-to-fire-and-handle-http-requests */
 public abstract class Post<ResultType> extends Connection<ResultType> {
     private static final String charset = "UTF-8";
+
+    public Post() {
+        super();
+    }
+
+    protected Post(LoginData loginData) {
+        super(loginData);
+    }
 
     @Override
     public void initializeConnection(HttpURLConnection connection) throws IOException {

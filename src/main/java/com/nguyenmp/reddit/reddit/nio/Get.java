@@ -7,19 +7,16 @@ import com.nguyenmp.reddit.reddit.data.LoginData;
 import java.net.HttpURLConnection;
 
 public abstract class Get<ResultType> extends Connection<ResultType> {
-    private final LoginData login;
-
     public Get() {
-        this.login = null;
+        super();
     }
 
-    public Get(LoginData login) {
-        this.login = login;
+    protected Get(LoginData loginData) {
+        super(loginData);
     }
 
     @Override
     public void initializeConnection(HttpURLConnection connection) {
-        if (login != null) connection.setRequestProperty("Cookie", login.cookie);
         connection.setRequestProperty("User-Agent", Config.USER_AGENT);
     }
 }

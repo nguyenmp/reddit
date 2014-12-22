@@ -1,5 +1,7 @@
 package com.nguyenmp.reddit.reddit.nio;
 
+import com.nguyenmp.reddit.reddit.data.LoginData;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -11,6 +13,16 @@ import java.util.concurrent.Callable;
 public abstract class Connection<ResultType> implements Callable<ResultType> {
     private static final String BASE_URL = "https://www.reddit.com/";
 
+    public final LoginData loginData;
+
+    public Connection() {
+        this(null);
+    }
+
+    protected Connection(LoginData loginData) {
+        this.loginData = loginData;
+    }
+
     public ResultType call() throws Exception {
         String endpoint = getEndpoint();
         String target = endpoint == null ? getBaseURL() : getBaseURL().concat(endpoint);
@@ -18,6 +30,7 @@ public abstract class Connection<ResultType> implements Callable<ResultType> {
         URL url = new URL(target);
         RateLimiter.enqueue();
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        if (loginData != null) urlConnection.setRequestProperty("Cookie", loginData.cookie);
         initializeConnection(urlConnection);
 
         InputStream inputStream = urlConnection.getInputStream();
