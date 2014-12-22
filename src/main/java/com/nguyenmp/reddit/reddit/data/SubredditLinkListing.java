@@ -17,6 +17,10 @@ public class SubredditLinkListing extends Listing<Link> {
     }
 
     public static SubredditLinkListing get(String subreddit, LoginData login) throws Exception {
-        return new SubredditLinkListingRunnable(subreddit, login).call();
+        return new SubredditLinkListingRunnable.Builder()
+                .forSubreddit(subreddit)
+                .withLogin(login)
+                .build()
+                .call();
     }
 }
