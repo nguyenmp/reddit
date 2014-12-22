@@ -10,7 +10,6 @@ public class RateLimiter {
         if (lastRun + TIMEOUT > currentRun) {
             // We need to wait
             try {
-                System.out.println(lastRun + TIMEOUT - currentRun);
                 Thread.sleep(TIMEOUT - (currentRun - lastRun));
             } catch (InterruptedException e) {
                 e.printStackTrace();
