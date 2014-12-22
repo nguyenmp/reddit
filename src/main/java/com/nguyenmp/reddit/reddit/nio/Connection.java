@@ -16,6 +16,7 @@ public abstract class Connection<ResultType> implements Callable<ResultType> {
         String target = endpoint == null ? getBaseURL() : getBaseURL().concat(endpoint);
 
         URL url = new URL(target);
+        RateLimiter.enqueue();
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         initializeConnection(urlConnection);
 
