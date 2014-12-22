@@ -42,14 +42,4 @@ public class SubredditLinkListingRunnable extends Get<SubredditLinkListing> {
     public SubredditLinkListing parseResult(Reader reader) throws Exception {
         return new ObjectMapper().readValue(reader, SubredditLinkListing.class);
     }
-
-    @Override
-    public void onComplete(SubredditLinkListing result) {
-        System.out.println("SubredditListing: ");
-    }
-
-    @Override
-    public void onError(Exception e) {
-
-    }
 }

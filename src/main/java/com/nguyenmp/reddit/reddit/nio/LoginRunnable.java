@@ -37,14 +37,4 @@ public class LoginRunnable extends Post<LoginResult> {
         String json = asString(reader);
         return mapper.readValue(json, LoginResult.class);
     }
-
-    @Override
-    public void onComplete(LoginResult result) {
-        // Do nothing
-    }
-
-    @Override
-    public void onError(Exception e) {
-        e.printStackTrace();
-    }
 }

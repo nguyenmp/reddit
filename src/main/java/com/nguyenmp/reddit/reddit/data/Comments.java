@@ -32,7 +32,7 @@ public class Comments extends Thing implements Serializable {
     }
 
     public static Comments get(String linkID) throws Exception {
-        return new Getter(linkID).runBlockingMode();
+        return new Getter(linkID).call();
     }
 
     private static class Getter extends Get<Comments> {
@@ -50,16 +50,6 @@ public class Comments extends Thing implements Serializable {
         @Override
         public Comments parseResult(Reader reader) throws Exception {
             return new ObjectMapper().readValue(reader, Comments.class);
-        }
-
-        @Override
-        public void onComplete(Comments result) {
-            System.out.println("result : " + result);
-        }
-
-        @Override
-        public void onError(Exception e) {
-
         }
     }
 }

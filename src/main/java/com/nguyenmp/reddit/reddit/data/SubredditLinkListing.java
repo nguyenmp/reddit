@@ -17,6 +17,6 @@ public class SubredditLinkListing extends Listing<Link> {
     }
 
     public static SubredditLinkListing get(String subreddit, LoginData login) throws Exception {
-        return new SubredditLinkListingRunnable(subreddit, login).runBlockingMode();
+        return new SubredditLinkListingRunnable(subreddit, login).call();
     }
 }

@@ -12,7 +12,7 @@ public class Reddit {
     }
 
     public static LoginData login(String username, String password) throws Exception {
-        LoginResult result = new LoginRunnable(username, password).runBlockingMode();
+        LoginResult result = new LoginRunnable(username, password).call();
         if (result.json.errors.length > 0) {
             StringBuilder builder = new StringBuilder();
             builder.append("[");

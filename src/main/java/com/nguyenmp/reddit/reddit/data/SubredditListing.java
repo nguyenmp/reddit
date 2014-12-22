@@ -7,10 +7,10 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 @JsonSerialize
 public class SubredditListing extends Listing<Subreddit> {
     public static SubredditListing get() throws Exception {
-        return new SubredditListingRunnable().runBlockingMode();
+        return new SubredditListingRunnable().call();
     }
 
     public static SubredditListing get(int count) throws Exception {
-        return new SubredditListingRunnable(count).runBlockingMode();
+        return new SubredditListingRunnable(count).call();
     }
 }

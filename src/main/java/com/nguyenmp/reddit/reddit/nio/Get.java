@@ -18,5 +18,6 @@ public abstract class Get<ResultType> extends Connection<ResultType> {
     @Override
     public void initializeConnection(HttpURLConnection connection) {
         if (login != null) connection.setRequestProperty("Cookie:", login.cookie);
+        connection.setRequestProperty("User-Agent:", "com.nguyenmp.reddit/0.0.0-testing");
     }
 }

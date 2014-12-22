@@ -6,20 +6,12 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
-public abstract class Connection<ResultType> implements Runnable {
+public abstract class Connection<ResultType> implements Callable<ResultType> {
     private static final String BASE_URL = "https://www.reddit.com/";
 
-    @Override
-    public void run() {
-        try {
-            onComplete(runBlockingMode());
-        } catch (Exception e) {
-            onError(e);
-        }
-    }
-
-    public ResultType runBlockingMode() throws Exception {
+    public ResultType call() throws Exception {
         String endpoint = getEndpoint();
         String target = endpoint == null ? getBaseURL() : getBaseURL().concat(endpoint);
 
@@ -46,9 +38,6 @@ public abstract class Connection<ResultType> implements Runnable {
     public abstract void initializeConnection(HttpURLConnection connection) throws Exception;
 
     public abstract ResultType parseResult(Reader reader) throws Exception;
-
-    public abstract void onComplete(ResultType result);
-    public abstract void onError(Exception e);
 
     public String asString(Reader reader) {
         Scanner scanner = new Scanner(reader);

@@ -26,14 +26,4 @@ public class SubredditListingRunnable extends Get<SubredditListing> {
     public SubredditListing parseResult(Reader reader) throws Exception {
         return new ObjectMapper().readValue(reader, SubredditListing.class);
     }
-
-    @Override
-    public void onComplete(SubredditListing result) {
-        // Do nothing
-    }
-
-    @Override
-    public void onError(Exception e) {
-        // Do nothing
-    }
 }
