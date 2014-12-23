@@ -77,11 +77,20 @@ public abstract class Post<ResultType> extends Connection<ResultType> {
     public static class NameValuePair {
         public final String name, value;
 
+        /**
+         * Creates a name value pair
+         * @param name a non null string
+         * @param value a non null string
+         */
         public NameValuePair(String name, String value) {
             this.name = name;
             this.value = value;
         }
 
+        /**
+         * Creates a clone of the given NameValuePair
+         * @param other the other NameValuePair to clone
+         */
         public NameValuePair(NameValuePair other) {
             this.name = other.name;
             this.value = other.value;
@@ -110,6 +119,7 @@ public abstract class Post<ResultType> extends Connection<ResultType> {
             return String.format("%s=%s", URLEncoder.encode(name), URLEncoder.encode(value));
         }
 
+        @SuppressWarnings({"CloneDoesntCallSuperClone", "CloneDoesntDeclareCloneNotSupportedException"})
         @Override
         protected NameValuePair clone() {
             return new NameValuePair(this);
