@@ -17,7 +17,7 @@ public abstract class Post<ResultType> extends Connection<ResultType> {
         super();
     }
 
-    protected Post(Session loginData) {
+    public Post(Session loginData) {
         super(loginData);
     }
 

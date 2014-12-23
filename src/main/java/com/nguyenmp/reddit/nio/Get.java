@@ -10,7 +10,7 @@ public abstract class Get<ResultType> extends Connection<ResultType> {
         super();
     }
 
-    protected Get(Session loginData) {
+    public Get(Session loginData) {
         super(loginData);
     }
 

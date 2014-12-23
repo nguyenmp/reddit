@@ -20,7 +20,7 @@ public abstract class Connection<ResultType> implements Callable<ResultType> {
         this(null);
     }
 
-    protected Connection(Session loginData) {
+    public Connection(Session loginData) {
         this.loginData = loginData;
     }
 
