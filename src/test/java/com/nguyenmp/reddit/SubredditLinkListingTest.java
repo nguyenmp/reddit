@@ -35,7 +35,7 @@ public class SubredditLinkListingTest {
         assertNotNull(listingData);
         assertNull(listingData.getBefore());
         assertNotNull(listingData.getModhash());
-        assertEquals(listingData.getModhash(), "");
+        assertNotEquals(0, listingData.getModhash().length());
     }
 
     @Test

@@ -1,7 +1,6 @@
 package com.nguyenmp.reddit.nio;
 
 
-import com.nguyenmp.reddit.Config;
 import com.nguyenmp.reddit.data.LoginData;
 
 import java.net.HttpURLConnection;
@@ -17,6 +16,7 @@ public abstract class Get<ResultType> extends Connection<ResultType> {
 
     @Override
     public void initializeConnection(HttpURLConnection connection) {
-        connection.setRequestProperty("User-Agent", Config.USER_AGENT);
+        // No initialization necessary here
+        // User-agent and cookies are set in Connection
     }
 }

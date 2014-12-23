@@ -1,5 +1,6 @@
 package com.nguyenmp.reddit.nio;
 
+import com.nguyenmp.reddit.Config;
 import com.nguyenmp.reddit.data.LoginData;
 
 import java.io.InputStream;
@@ -7,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Scanner;
 import java.util.concurrent.Callable;
 
@@ -30,7 +32,8 @@ public abstract class Connection<ResultType> implements Callable<ResultType> {
         URL url = new URL(target);
         RateLimiter.enqueue();
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        if (loginData != null) urlConnection.setRequestProperty("Cookie", loginData.cookie);
+        if (loginData != null) urlConnection.setRequestProperty("Cookie", "reddit_session=" + URLEncoder.encode(loginData.cookie));
+        urlConnection.setRequestProperty("User-Agent", Config.USER_AGENT);
         initializeConnection(urlConnection);
 
         InputStream inputStream = urlConnection.getInputStream();

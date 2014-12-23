@@ -28,7 +28,6 @@ public abstract class Post<ResultType> extends Connection<ResultType> {
         connection.setDoOutput(true);
         connection.setRequestProperty("Accept-Charset", charset);
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + charset);
-        connection.setRequestProperty("User-Agent", Config.USER_AGENT);
 
         OutputStream output = connection.getOutputStream();
         output.write(getQuery().getBytes());
