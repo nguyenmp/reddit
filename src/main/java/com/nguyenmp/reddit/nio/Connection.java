@@ -55,9 +55,11 @@ public abstract class Connection<ResultType> implements Callable<ResultType> {
 
     public abstract ResultType parseResult(Reader reader) throws Exception;
 
-    public String asString(Reader reader) {
+    public static String asString(Reader reader) {
         Scanner scanner = new Scanner(reader);
         scanner.useDelimiter("\\A");
-        return scanner.next();
+        String result = scanner.hasNext() ? scanner.next() : "";
+        scanner.close();
+        return result;
     }
 }
