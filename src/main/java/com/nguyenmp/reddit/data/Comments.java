@@ -1,7 +1,6 @@
 package com.nguyenmp.reddit.data;
 
 import com.nguyenmp.reddit.nio.Get;
-
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize;

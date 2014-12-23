@@ -1,7 +1,6 @@
 package com.nguyenmp.reddit.nio;
 
-import com.nguyenmp.reddit.Config;
-import com.nguyenmp.reddit.data.LoginData;
+import com.nguyenmp.reddit.Session;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -18,7 +17,7 @@ public abstract class Post<ResultType> extends Connection<ResultType> {
         super();
     }
 
-    protected Post(LoginData loginData) {
+    protected Post(Session loginData) {
         super(loginData);
     }
 

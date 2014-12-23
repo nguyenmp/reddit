@@ -1,8 +1,8 @@
 package com.nguyenmp.reddit.nio;
 
+import com.nguyenmp.reddit.Session;
 import com.nguyenmp.reddit.data.LoginData;
 import com.nguyenmp.reddit.data.SubredditLinkListing;
-
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.Reader;
@@ -11,7 +11,7 @@ public class SubredditLinkListingRunnable extends Get<SubredditLinkListing> {
     public static class Builder {
         private String subreddit = null; // Defaults to frontpage
         private String after = null; // Defaults to the first page
-        private LoginData loginData = null; // Defaults to logged out
+        private Session loginData = null; // Defaults to logged out
 
         public Builder() {
             super();
@@ -22,7 +22,7 @@ public class SubredditLinkListingRunnable extends Get<SubredditLinkListing> {
             return this;
         }
 
-        public Builder withLogin(LoginData loginData) {
+        public Builder withUser(Session loginData) {
             this.loginData = loginData;
             return this;
         }
@@ -41,7 +41,7 @@ public class SubredditLinkListingRunnable extends Get<SubredditLinkListing> {
     private final String after;
 
 
-    private SubredditLinkListingRunnable(String subreddit, String after, LoginData login) {
+    private SubredditLinkListingRunnable(String subreddit, String after, Session login) {
         super(login);
         this.after = after;
         this.subreddit = subreddit;

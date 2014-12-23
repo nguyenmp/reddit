@@ -1,7 +1,6 @@
 package com.nguyenmp.reddit.data;
 
 import com.nguyenmp.reddit.nio.SubredditListingRunnable;
-
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonSerialize

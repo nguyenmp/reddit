@@ -1,7 +1,6 @@
 package com.nguyenmp.reddit.nio;
 
 import com.nguyenmp.reddit.data.LoginResult;
-
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.Reader;

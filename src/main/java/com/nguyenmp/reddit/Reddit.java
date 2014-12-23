@@ -1,12 +1,11 @@
 package com.nguyenmp.reddit;
 
-import com.nguyenmp.reddit.data.LoginData;
 import com.nguyenmp.reddit.data.LoginResult;
 import com.nguyenmp.reddit.nio.LoginRunnable;
 
 /** An interface to access reddit.com */
 public class Reddit {
-    public static LoginData login(String username, String password) throws Exception {
+    public static Session login(String username, String password) throws Exception {
         LoginResult result = new LoginRunnable(username, password).call();
         if (result.json.errors.length > 0) {
             StringBuilder builder = new StringBuilder();
@@ -24,6 +23,6 @@ public class Reddit {
             builder.append("]");
             throw new Exception("Failed to log in: " + builder.toString());
         }
-        else return result.json.data;
+        else return new CookieSession(result.json.data);
     }
 }

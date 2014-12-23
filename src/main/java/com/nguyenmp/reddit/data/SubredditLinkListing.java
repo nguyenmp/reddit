@@ -1,5 +1,6 @@
 package com.nguyenmp.reddit.data;
 
+import com.nguyenmp.reddit.Session;
 import com.nguyenmp.reddit.nio.SubredditLinkListingRunnable;
 
 public class SubredditLinkListing extends Listing<Link> {
@@ -8,7 +9,7 @@ public class SubredditLinkListing extends Listing<Link> {
         return get(null, null);
     }
 
-    public static SubredditLinkListing get(LoginData login) throws Exception {
+    public static SubredditLinkListing get(Session login) throws Exception {
         return get(null, login);
     }
 
@@ -16,10 +17,10 @@ public class SubredditLinkListing extends Listing<Link> {
         return get(subreddit, null);
     }
 
-    public static SubredditLinkListing get(String subreddit, LoginData login) throws Exception {
+    public static SubredditLinkListing get(String subreddit, Session login) throws Exception {
         return new SubredditLinkListingRunnable.Builder()
                 .forSubreddit(subreddit)
-                .withLogin(login)
+                .withUser(login)
                 .build()
                 .call();
     }

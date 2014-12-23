@@ -1,9 +1,7 @@
 package com.nguyenmp.reddit;
 
-import com.nguyenmp.reddit.Reddit;
 import com.nguyenmp.reddit.data.Link;
 import com.nguyenmp.reddit.data.ListingData;
-import com.nguyenmp.reddit.data.LoginData;
 import com.nguyenmp.reddit.data.SubredditLinkListing;
 import org.junit.Test;
 
@@ -26,8 +24,8 @@ public class SubredditLinkListingTest {
 
     @Test
     public void test2() throws Exception {
-        LoginData login = Reddit.login("584669", "584669");
-        SubredditLinkListing listing = SubredditLinkListing.get(login);
+        Session session = Reddit.login("584669", "584669");
+        SubredditLinkListing listing = SubredditLinkListing.get(session);
         assertNotNull(listing);
         assertEquals(listing.getKind(), "Listing");
 

@@ -1,7 +1,7 @@
 package com.nguyenmp.reddit.nio;
 
 
-import com.nguyenmp.reddit.data.LoginData;
+import com.nguyenmp.reddit.Session;
 
 import java.net.HttpURLConnection;
 
@@ -10,7 +10,7 @@ public abstract class Get<ResultType> extends Connection<ResultType> {
         super();
     }
 
-    protected Get(LoginData loginData) {
+    protected Get(Session loginData) {
         super(loginData);
     }
 

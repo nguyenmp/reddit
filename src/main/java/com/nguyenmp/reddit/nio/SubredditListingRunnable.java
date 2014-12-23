@@ -1,8 +1,7 @@
 package com.nguyenmp.reddit.nio;
 
-import com.nguyenmp.reddit.data.LoginData;
+import com.nguyenmp.reddit.Session;
 import com.nguyenmp.reddit.data.SubredditListing;
-
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.Reader;
@@ -26,7 +25,7 @@ public class SubredditListingRunnable extends Get<SubredditListing> {
 
     public static class Builder {
         private Integer limit = null;
-        private LoginData loginData = null;
+        private Session loginData = null;
         private Category category = null;
 
         public Builder withLimit(Integer limit) {
@@ -34,7 +33,7 @@ public class SubredditListingRunnable extends Get<SubredditListing> {
             return this;
         }
 
-        public Builder byUser(LoginData loginData) {
+        public Builder byUser(Session loginData) {
             this.loginData = loginData;
             return this;
         }
@@ -52,7 +51,7 @@ public class SubredditListingRunnable extends Get<SubredditListing> {
     private final Integer limit;
     private final Category category;
 
-    public SubredditListingRunnable(Integer limit, LoginData loginData, Category category) {
+    public SubredditListingRunnable(Integer limit, Session loginData, Category category) {
         super(loginData);
         this.limit = limit;
         this.category = category;
